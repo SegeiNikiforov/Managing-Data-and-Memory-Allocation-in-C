@@ -77,7 +77,7 @@ void print_linked_list(LinkedList *list) {
 };
 
 void print_node(Node *node) {
-    printf("[%d] => %s", node->data, node->next ? "" : "NULL");
+    printf("[%d %p] => %s", node->data, node, node->next ? "" : "NULL");
 }
 
 void insert_node(LinkedList* list, int data) {
@@ -87,6 +87,7 @@ void insert_node(LinkedList* list, int data) {
     Node *new_node = (Node*)malloc(sizeof(Node));
     new_node->data = data;
     new_node->next = NULL;
+    printf("%p", new_node);
 
     Node *tail = NULL,
          *current = list->head;
